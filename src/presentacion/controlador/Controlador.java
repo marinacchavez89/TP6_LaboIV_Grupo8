@@ -1,5 +1,5 @@
 package presentacion.controlador;
 
-public class ejemploControlador {
+public class Controlador {
 
 }
