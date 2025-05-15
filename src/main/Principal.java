@@ -1,8 +1,25 @@
 package main;
 
-public class Principal {
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+import presentacion.vista.VentanaPrincipal;
+
+public class Principal extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
-		System.out.println("Programa corriendo...");
-	}
+	        EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+	                    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+	                    ventanaPrincipal.setVisible(true);
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
 }
