@@ -11,8 +11,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import entidad.PanelAgregarPersonas;
-import entidad.PanelListarPersonas;
 import entidad.Persona;
 
 
