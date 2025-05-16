@@ -14,6 +14,7 @@ public class Principal extends JFrame {
 	        EventQueue.invokeLater(new Runnable() {
 	            public void run() {
 	                try {
+	                	System.out.println("Lanzando ventana principal...");
 	                    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 	                    ventanaPrincipal.setVisible(true);
 	                } catch (Exception e) {

@@ -19,11 +19,13 @@ public class VentanaPrincipal extends JFrame {
 	private JMenu JMenuPersonas;
 	private JMenuItem JMenuItemAgregar;
 	private JMenuItem JMenuItemListar;
+	private JMenuItem JMenuItemModificar;
+	private JMenuItem JMenuItemEliminar;
 	private JPanel contentPane;
 	private DefaultListModel<Persona> modeloPersonas; // modelo compartido entre paneles
 	
 	public VentanaPrincipal() {
-		// Inicializamos el modelo para las películas
+		// Inicializamos el modelo para las personas
 		modeloPersonas = new DefaultListModel<Persona>();
 		
         setTitle("Programa");
@@ -42,7 +44,7 @@ public class VentanaPrincipal extends JFrame {
         
         JMenuPersonas = new JMenu("Personas");
         JmenuBar.add(JMenuPersonas);
-        
+        //boton agregar
         JMenuItemAgregar = new JMenuItem("Agregar");
         JMenuItemAgregar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -56,6 +58,33 @@ public class VentanaPrincipal extends JFrame {
        
         JMenuPersonas.add(JMenuItemAgregar);
                 
+        //boton Modificar
+        JMenuItemModificar = new JMenuItem("Modificar");
+        JMenuItemModificar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		contentPane.removeAll();
+        		PanelModificarPersonas panelModificar = new PanelModificarPersonas(modeloPersonas);
+        		contentPane.add(panelModificar);
+        		contentPane.revalidate();
+        		contentPane.repaint();
+        	}
+        });
+        JMenuPersonas.add(JMenuItemModificar);
+        
+        //boton Eliminar
+        JMenuItemEliminar = new JMenuItem("Eliminar");
+        JMenuItemEliminar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		contentPane.removeAll();
+        		PanelEliminarPersonas panelEliminar = new PanelEliminarPersonas(modeloPersonas);
+        		contentPane.add(panelEliminar);
+        		contentPane.revalidate();
+        		contentPane.repaint();
+        	}
+        });
+        JMenuPersonas.add(JMenuItemEliminar);
+        
+        //boton listar
         JMenuItemListar = new JMenuItem("Listar");
         JMenuItemListar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -69,6 +98,6 @@ public class VentanaPrincipal extends JFrame {
         });
       
         JMenuPersonas.add(JMenuItemListar);
-        
+               
 	}
 }
