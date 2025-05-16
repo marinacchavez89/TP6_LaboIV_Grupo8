@@ -1,6 +1,11 @@
 package main;
 
 import java.awt.EventQueue;
+import java.sql.Connection;
+import daoImpl.Conexion;
+
+
+
 
 import javax.swing.JFrame;
 
@@ -22,5 +27,7 @@ public class Principal extends JFrame {
 	                }
 	            }
 	        });
+	        Connection con = Conexion.getConexion().getSQLConexion();
+	        System.out.println(con != null ? "✅ Conexión OK" : "❌ Conexión fallida");
 	    }
 }
