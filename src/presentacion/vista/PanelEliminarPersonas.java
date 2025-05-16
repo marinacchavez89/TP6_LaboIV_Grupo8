@@ -13,23 +13,23 @@ public class PanelEliminarPersonas extends JPanel{
 	
 	private JLabel lblTitulo;
 	private JButton btnEliminar;
-	private JList listUsuarios;
+	private JList listPersonas;
 
 	public PanelEliminarPersonas(DefaultListModel<Persona> modeloPersonas) {
 		setLayout(null);
 		
 		lblTitulo = new JLabel("Eliminar usuarios");
 		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTitulo.setBounds(146, 49, 132, 14);
+		lblTitulo.setBounds(133, 47, 132, 14);
 		add(lblTitulo);
 		
 		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(146, 225, 107, 23);
+		btnEliminar.setBounds(145, 225, 107, 23);
 		add(btnEliminar);
 		
-		listUsuarios = new JList();
-		listUsuarios.setBounds(128, 74, 150, 140);
-		add(listUsuarios);
+		listPersonas = new JList();
+		listPersonas.setBounds(124, 72, 150, 140);
+		add(listPersonas);
 		
         // Panel vacio
     }

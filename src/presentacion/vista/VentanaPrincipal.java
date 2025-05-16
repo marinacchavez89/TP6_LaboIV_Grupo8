@@ -29,7 +29,7 @@ public class VentanaPrincipal extends JFrame {
 		modeloPersonas = new DefaultListModel<Persona>();
 		
         setTitle("Programa");
-        setSize(400, 400);
+        setSize(445, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
