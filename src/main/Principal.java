@@ -1,26 +1,18 @@
 package main;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-
+import negocio.PersonaNegocio;
+import negocioImpl.PersonaNegocioImpl;
+import presentacion.controlador.Controlador;
 import presentacion.vista.VentanaPrincipal;
 
-public class Principal extends JFrame {
+public class Principal {
 	
-	private static final long serialVersionUID = 1L;
-
 	public static void main(String[] args) {
-	        EventQueue.invokeLater(new Runnable() {
-	            public void run() {
-	                try {
-	                	System.out.println("Lanzando ventana principal...");
-	                    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-	                    ventanaPrincipal.setVisible(true);
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-	            }
-	        });
-	    }
+		
+		VentanaPrincipal vista = new VentanaPrincipal();
+		PersonaNegocio negocio = new PersonaNegocioImpl();
+		Controlador controlador = new Controlador(vista, negocio);
+		controlador.inicializar();
+	}
+
 }

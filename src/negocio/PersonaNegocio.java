@@ -1,5 +1,8 @@
 package negocio;
 
-public class PersonaNegocio {
+import entidad.Persona;
 
+public interface PersonaNegocio {
+
+	public boolean insert(Persona persona);
 }
