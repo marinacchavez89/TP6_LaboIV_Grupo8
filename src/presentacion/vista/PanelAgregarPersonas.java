@@ -2,6 +2,7 @@ package presentacion.vista;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import entidad.Persona;
 import javax.swing.JTextField;
@@ -12,8 +13,15 @@ public class PanelAgregarPersonas extends JPanel {
 	private JTextField txtNombre;
     private JTextField txtApellido;
     private JTextField txtDni;
+    private JButton btnAceptar;
 
-	public PanelAgregarPersonas(DefaultListModel<Persona> modeloPersonas) {
+    public PanelAgregarPersonas() {
+   	
+		super();
+		initialize();
+	}
+    
+    public void initialize() {
 		setLayout(null);
         
         // Nombre
@@ -40,9 +48,43 @@ public class PanelAgregarPersonas extends JPanel {
         add(lblDni);
         add(txtDni);
         
-        JButton btnAceptar = new JButton("Aceptar");
+        btnAceptar = new JButton("Aceptar");
         btnAceptar.setBounds(242, 208, 89, 23);
         add(btnAceptar);
     }
+	
+	public JButton getBtnAgregar() {
+		return btnAceptar;
+	}
+
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtApellido() {
+		return txtApellido;
+	}
+
+	public void setTxtApellido(JTextField txtApellido) {
+		this.txtApellido = txtApellido;
+	}
+
+	public JTextField getTxtDni() {
+		return txtDni;
+	}
+
+	public void setTxtDni(JTextField txtDni) {
+		this.txtDni = txtDni;
+	}
+	
+	public void mostrarMensaje(String mensaje)
+	{
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+
 }
 

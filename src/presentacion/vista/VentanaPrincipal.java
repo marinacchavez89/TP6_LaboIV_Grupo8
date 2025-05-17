@@ -49,7 +49,7 @@ public class VentanaPrincipal extends JFrame {
         JMenuItemAgregar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
                 contentPane.removeAll();
-                PanelAgregarPersonas panelAgregarPersona = new PanelAgregarPersonas(modeloPersonas); // se pasa el modelo
+                PanelAgregarPersonas panelAgregarPersona = new PanelAgregarPersonas(); // se pasa el modelo
                 contentPane.add(panelAgregarPersona);
                 contentPane.revalidate();
                 contentPane.repaint();
@@ -98,6 +98,11 @@ public class VentanaPrincipal extends JFrame {
         });
       
         JMenuPersonas.add(JMenuItemListar);
-               
+        
+
+	}
+	
+	public JMenuItem getMenuAgregar() {
+		return JMenuItemAgregar;
 	}
 }
