@@ -14,6 +14,7 @@ public class PanelEliminarPersonas extends JPanel{
 	private JLabel lblTitulo;
 	private JButton btnEliminar;
 	private JList listPersonas;
+	private DefaultListModel<Persona> modeloPersonas;
 
 	public PanelEliminarPersonas(DefaultListModel<Persona> modeloPersonas) {
 		setLayout(null);
@@ -31,8 +32,18 @@ public class PanelEliminarPersonas extends JPanel{
 		listPersonas.setBounds(124, 72, 150, 140);
 		add(listPersonas);
 		
-        // Panel vacio
     }
+	 public JButton getBtnEliminar() {
+	        return btnEliminar;
+	 }
+	 
+	 public DefaultListModel<Persona>getModelPersonas(){
+		 return modeloPersonas;
+	 }
+	 
+	 public JList<Persona> gestListaPersonas(){
+		 return listPersonas;
+	 }
 }	
 
 
