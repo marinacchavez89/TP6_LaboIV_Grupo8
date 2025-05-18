@@ -15,14 +15,14 @@ import entidad.Persona;
 
 
 public class VentanaPrincipal extends JFrame {
-	private JMenuBar JmenuBar;
-	private JMenu JMenuPersonas;
-	private JMenuItem JMenuItemAgregar;
-	private JMenuItem JMenuItemListar;
-	private JMenuItem JMenuItemModificar;
-	private JMenuItem JMenuItemEliminar;
-	private JPanel contentPane;
-	private DefaultListModel<Persona> modeloPersonas; // modelo compartido entre paneles
+	private JMenuBar jMenuBar;
+    private JMenu jMenuPersonas;
+    private JMenuItem jMenuItemAgregar;
+    private JMenuItem jMenuItemListar;
+    private JMenuItem jMenuItemModificar;
+    private JMenuItem jMenuItemEliminar;
+    private JPanel contentPane;
+    private DefaultListModel<Persona> modeloPersonas; // modelo compartido
 	
 	public VentanaPrincipal() {
 		// Inicializamos el modelo para las personas
@@ -39,70 +39,42 @@ public class VentanaPrincipal extends JFrame {
         getContentPane().add(contentPane);
         contentPane.setLayout(new GridLayout(1, 0, 0, 0));
         
-        JmenuBar = new JMenuBar();
-        setJMenuBar(JmenuBar);
+        jMenuBar = new JMenuBar();
+        setJMenuBar(jMenuBar);
         
-        JMenuPersonas = new JMenu("Personas");
-        JmenuBar.add(JMenuPersonas);
-        //boton agregar
-        JMenuItemAgregar = new JMenuItem("Agregar");
-        JMenuItemAgregar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-                contentPane.removeAll();
-                PanelAgregarPersonas panelAgregarPersona = new PanelAgregarPersonas(); // se pasa el modelo
-                contentPane.add(panelAgregarPersona);
-                contentPane.revalidate();
-                contentPane.repaint();
-            }
-        });
-       
-        JMenuPersonas.add(JMenuItemAgregar);
-                
-        //boton Modificar
-        JMenuItemModificar = new JMenuItem("Modificar");
-        JMenuItemModificar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		contentPane.removeAll();
-        		PanelModificarPersonas panelModificar = new PanelModificarPersonas(modeloPersonas);
-        		contentPane.add(panelModificar);
-        		contentPane.revalidate();
-        		contentPane.repaint();
-        	}
-        });
-        JMenuPersonas.add(JMenuItemModificar);
-        
-        //boton Eliminar
-        JMenuItemEliminar = new JMenuItem("Eliminar");
-        JMenuItemEliminar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		contentPane.removeAll();
-        		PanelEliminarPersonas panelEliminar = new PanelEliminarPersonas(modeloPersonas);
-        		contentPane.add(panelEliminar);
-        		contentPane.revalidate();
-        		contentPane.repaint();
-        	}
-        });
-        JMenuPersonas.add(JMenuItemEliminar);
-        
-        //boton listar
-        JMenuItemListar = new JMenuItem("Listar");
-        JMenuItemListar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		// Cambiar el panel a ListarPeliculas				
-        		contentPane.removeAll();
-				PanelListarPersonas panelListar = new PanelListarPersonas(modeloPersonas);  // Pasamos el modelo
-				contentPane.add(panelListar);
-				contentPane.revalidate();
-				contentPane.repaint();
-        	}        	
-        });
-      
-        JMenuPersonas.add(JMenuItemListar);
+        jMenuPersonas = new JMenu("Personas");
+        jMenuBar.add(jMenuPersonas);
+
+        jMenuItemAgregar = new JMenuItem("Agregar");
+        jMenuPersonas.add(jMenuItemAgregar);
+
+        jMenuItemModificar = new JMenuItem("Modificar");
+        jMenuPersonas.add(jMenuItemModificar);
+
+        jMenuItemEliminar = new JMenuItem("Eliminar");
+        jMenuPersonas.add(jMenuItemEliminar);
+
+        jMenuItemListar = new JMenuItem("Listar");
+        jMenuPersonas.add(jMenuItemListar);
         
 
 	}
 	
-	public JMenuItem getMenuAgregar() {
-		return JMenuItemAgregar;
-	}
+	// Getters para que el controlador pueda agregar listeners y manipular el contenido
+    public JMenuItem getMenuAgregar() {
+        return jMenuItemAgregar;
+    }
+
+    public JMenuItem getMenuModificar() {
+        return jMenuItemModificar;
+    }
+    
+    public JMenuItem getMenuEliminar() {
+        return jMenuItemEliminar;
+    }
+
+    public JMenuItem getMenuListar() {
+        return jMenuItemListar;
+    }
+
 }

@@ -12,8 +12,9 @@ public class Conexion {
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver"); 
-			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdPersonas","root","root");
+			Class.forName("com.mysql.jdbc.Driver");
+			// Mari tiene pass 1234 y los demas "root" --> Modificar a conveniencia.
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdPersonas","root","1234");
 			this.connection.setAutoCommit(false);
 		}
 		catch(Exception e)

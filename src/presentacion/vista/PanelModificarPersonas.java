@@ -12,12 +12,11 @@ public class PanelModificarPersonas extends JPanel {
     private JTextField txtDni;
     private JButton btnModificar;
 
-    public PanelModificarPersonas(DefaultListModel<Persona> modeloPersonas) {
-        setLayout(null);
-
-        this.modeloPersonas = modeloPersonas;
-        listaPersonas = new JList<>(modeloPersonas);
-        listaPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    public PanelModificarPersonas() {
+    	setLayout(null);
+	    this.modeloPersonas = new DefaultListModel<>();
+	    listaPersonas = new JList<>(modeloPersonas);
+	    listaPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         JScrollPane scrollPane = new JScrollPane(listaPersonas);
         scrollPane.setBounds(20, 45, 387, 200);
@@ -26,15 +25,12 @@ public class PanelModificarPersonas extends JPanel {
         txtNombre = new JTextField();
         txtNombre.setBounds(20, 256, 86, 20);
         add(txtNombre);
-        txtNombre.setColumns(10);
 
         txtApellido = new JTextField();
-        txtApellido.setColumns(10);
         txtApellido.setBounds(116, 256, 86, 20);
         add(txtApellido);
 
         txtDni = new JTextField();
-        txtDni.setColumns(10);
         txtDni.setBounds(212, 256, 86, 20);
         add(txtDni);
 
@@ -50,6 +46,22 @@ public class PanelModificarPersonas extends JPanel {
 
     public DefaultListModel<Persona> getModeloPersonas() {
         return modeloPersonas;
+    }
+    
+    public JTextField getTxtNombre() { 
+    	return txtNombre; 
+    }
+    
+    public JTextField getTxtApellido() { 
+    	return txtApellido; 
+    }
+    
+    public JTextField getTxtDni() { 
+    	return txtDni; 
+    }
+    
+    public JButton getBtnModificar() { 
+    	return btnModificar; 
     }
     
 }
