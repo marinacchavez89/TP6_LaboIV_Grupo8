@@ -9,4 +9,5 @@ public interface PersonaNegocio {
 	public boolean insert(Persona persona);
 	public List<Persona> readAll();
 	public boolean modificar(Persona persona);
+	public boolean eliminar(Persona persona);
 }

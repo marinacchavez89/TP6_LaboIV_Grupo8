@@ -7,16 +7,17 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.JList;
 
 public class PanelEliminarPersonas extends JPanel{
 	
 	private JLabel lblTitulo;
 	private JButton btnEliminar;
-	private JList listPersonas;
+	private JList <Persona> listPersonas;
 	private DefaultListModel<Persona> modeloPersonas;
 
-	public PanelEliminarPersonas(DefaultListModel<Persona> modeloPersonas) {
+	public PanelEliminarPersonas() {
 		setLayout(null);
 		
 		lblTitulo = new JLabel("Eliminar usuarios");
@@ -28,8 +29,10 @@ public class PanelEliminarPersonas extends JPanel{
 		btnEliminar.setBounds(145, 225, 107, 23);
 		add(btnEliminar);
 		
-		listPersonas = new JList();
-		listPersonas.setBounds(124, 72, 150, 140);
+		this.modeloPersonas = new DefaultListModel<>();
+		listPersonas = new JList<>(modeloPersonas);
+		listPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listPersonas.setBounds(104, 72, 192, 168);
 		add(listPersonas);
 		
     }
@@ -41,9 +44,10 @@ public class PanelEliminarPersonas extends JPanel{
 		 return modeloPersonas;
 	 }
 	 
-	 public JList<Persona> gestListaPersonas(){
+	 public JList<Persona> getListaPersonas(){
 		 return listPersonas;
 	 }
+	
 }	
 
 

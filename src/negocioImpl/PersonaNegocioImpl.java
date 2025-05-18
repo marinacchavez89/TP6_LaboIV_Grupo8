@@ -69,4 +69,18 @@ public class PersonaNegocioImpl implements PersonaNegocio{
 		    }
 		    return estado;
 	}
+
+	@Override
+	public boolean eliminar(Persona persona) {
+		boolean estado = false;
+		 try {
+		        if ( persona.getDni()!= "" ) {
+		            estado = pdao.delete(persona);
+		        }
+		    } catch (Exception e) {
+		        System.out.println("Error al eliminar la persona: " + e.getMessage());
+		        estado = false;
+		    }
+		return estado;
+	}
 }

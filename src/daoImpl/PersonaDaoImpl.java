@@ -15,6 +15,7 @@ public class PersonaDaoImpl implements PersonaDao{
 	private static final String modificar = "UPDATE personas SET Nombre = ?, Apellido = ? WHERE Dni = ?";
 	private static final String selectAll = "SELECT dni, nombre, apellido FROM personas";
 	private static final String selectPorDni = "SELECT COUNT(*) AS total FROM personas WHERE Dni = ?";
+	private static final String delete = "DELETE FROM personas WHERE Dni = ?";
 	
 	//agregar
 	public boolean insert(Persona persona) {
@@ -48,7 +49,24 @@ public class PersonaDaoImpl implements PersonaDao{
 	
 	// borrar
 	public boolean delete(Persona persona_a_eliminar) {
-		return false;
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConexion().getSQLConexion();
+		boolean isDeleteExitoso = false;
+		try
+		{
+			statement = conexion.prepareStatement(delete);
+			statement.setString(1, persona_a_eliminar.getDni());
+			if(statement.executeUpdate() > 0)
+			{
+				conexion.commit();
+				isDeleteExitoso = true;
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return isDeleteExitoso;
 	}
 	
 	// Método readAll
