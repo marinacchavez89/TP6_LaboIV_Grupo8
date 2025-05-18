@@ -26,8 +26,6 @@ public class Controlador implements ActionListener {
 	private PanelModificarPersonas pnlModificarPersonas;
 	private PanelListarPersonas pnlListarPersonas;
 	private PersonaNegocio pNeg;
-	private ArrayList<Persona> personasEnTabla;
-	private ArrayList<Persona>listaPersonas;
 	
 	//Constructor
 	public Controlador(VentanaPrincipal vista, PersonaNegocio pNeg)
