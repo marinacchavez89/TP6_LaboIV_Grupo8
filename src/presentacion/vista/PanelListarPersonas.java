@@ -1,18 +1,21 @@
 package presentacion.vista;
 
+import java.util.List;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import entidad.Persona;
 import javax.swing.JTable;
+
 import javax.swing.table.DefaultTableModel;
 
 public class PanelListarPersonas extends JPanel {
 	private JTable table;	 
 	private DefaultTableModel modeloTabla;
 
-	public PanelListarPersonas(DefaultListModel<Persona> modeloPersonas) {
+	public PanelListarPersonas() {
 		
 		 	setLayout(null);
 
@@ -25,13 +28,15 @@ public class PanelListarPersonas extends JPanel {
 	        JScrollPane scrollPane = new JScrollPane(table);
 	        scrollPane.setBounds(20, 45, 369, 200);
 	        add(scrollPane);
-
-	        // Esto seria para luego cargar datos desde el modelo, se puede editar por foreach, etc.
-	        for (int i = 0; i < modeloPersonas.size(); i++) {
-	            Persona p = modeloPersonas.get(i);
-	            modeloTabla.addRow(new Object[]{p.getNombre(), p.getApellido(), p.getDni()});
 	        }
-	    }
+	   
+	public void cargarPersonas(List<Persona> personas)
+	{
+modeloTabla.setRowCount(0);
+for (Persona persona : personas) {
+	modeloTabla.addRow(new Object[] {persona.getNombre(),persona.getApellido(),persona.getDni()});
+}
+	}
 
 	    public JTable getTable() {
 	        return table;
