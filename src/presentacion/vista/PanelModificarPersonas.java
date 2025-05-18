@@ -17,6 +17,11 @@ public class PanelModificarPersonas extends JPanel {
 	    this.modeloPersonas = new DefaultListModel<>();
 	    listaPersonas = new JList<>(modeloPersonas);
 	    listaPersonas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	    
+	    // Título arriba de la lista
+	    JLabel lblTitulo = new JLabel("Seleccione la persona que desea modificar:");
+	    lblTitulo.setBounds(20, 15, 300, 20);
+	    add(lblTitulo);
 
         JScrollPane scrollPane = new JScrollPane(listaPersonas);
         scrollPane.setBounds(20, 45, 387, 200);

@@ -136,7 +136,7 @@ public class Controlador implements ActionListener {
 		ventanaPrincipal.getContentPane().add(pnlListarPersonas);
 		ventanaPrincipal.getContentPane().repaint();
 		ventanaPrincipal.getContentPane().revalidate();
-//no vamos a cargar la lista poer ser JTable
+		//no vamos a cargar la lista por ser JTable
 		pnlListarPersonas.cargarPersonas(pNeg.readAll());
 	}
 
@@ -182,12 +182,21 @@ public class Controlador implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Complete todos los campos para modificar.");
 			return;
 		}
+		
+		if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+") || !apellido.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+		    JOptionPane.showMessageDialog(null, "El nombre y el apellido deben contener solo letras.");
+		    return;
+		}
 
 		Persona personaModificada = new Persona(dni, nombre, apellido);
 
 		if (pNeg.modificar(personaModificada)) {
 			JOptionPane.showMessageDialog(null, "Persona modificada con éxito.");
 			cargarListaPersonas(); // Refrescamos lista
+			// Limpiar campos
+	        pnlModificarPersonas.getTxtDni().setText("");
+	        pnlModificarPersonas.getTxtNombre().setText("");
+	        pnlModificarPersonas.getTxtApellido().setText("");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error al modificar la persona.");
 		}
