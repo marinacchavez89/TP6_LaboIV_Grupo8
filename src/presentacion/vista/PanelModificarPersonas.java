@@ -11,6 +11,7 @@ public class PanelModificarPersonas extends JPanel {
     private JTextField txtApellido;
     private JTextField txtDni;
     private JButton btnModificar;
+    
 
     public PanelModificarPersonas() {
     	setLayout(null);
@@ -20,7 +21,7 @@ public class PanelModificarPersonas extends JPanel {
 	    
 	    // Título arriba de la lista
 	    JLabel lblTitulo = new JLabel("Seleccione la persona que desea modificar:");
-	    lblTitulo.setBounds(20, 15, 300, 20);
+	    lblTitulo.setBounds(20, 15, 253, 20);
 	    add(lblTitulo);
 
         JScrollPane scrollPane = new JScrollPane(listaPersonas);
@@ -42,6 +43,7 @@ public class PanelModificarPersonas extends JPanel {
         btnModificar = new JButton("Modificar");
         btnModificar.setBounds(304, 255, 103, 23);
         add(btnModificar);
+        
       
     }
 
@@ -69,4 +71,5 @@ public class PanelModificarPersonas extends JPanel {
     	return btnModificar; 
     }
     
+   
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 public class Conexion {
 	public static Conexion instancia;
 	private Connection connection;
@@ -18,8 +20,10 @@ public class Conexion {
 			this.connection.setAutoCommit(false);
 		}
 		catch(Exception e)
-		{
-			e.printStackTrace();
+		{	
+			JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos.\nVerifique usuario, contraseña o estado del servidor.", "Error de conexión", JOptionPane.ERROR_MESSAGE);
+		    e.printStackTrace();
+		    System.exit(1); //  Cierra todo el programa
 		}
 	}
 	public static Conexion getConexion()   
